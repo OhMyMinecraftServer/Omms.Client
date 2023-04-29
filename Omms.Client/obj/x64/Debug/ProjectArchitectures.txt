@@ -1,0 +1,1 @@
+C:\Users\Natsuraniko\source\repos\Omms.Client\Omms.Client\Omms.Client.csproj;x64
