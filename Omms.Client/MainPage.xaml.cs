@@ -48,6 +48,8 @@ public sealed partial class MainPage : Page
 
         AppTitleBar.Margin = new Thickness(48, AppTitleBar.Margin.Top, SystemBar.SystemOverlayRightInset, AppTitleBar.Margin.Bottom);
         Window.Current.SetTitleBar(AppTitleBar);
+
+        new ConnectDialog().ShowAsync();
     }
 
     private void NavigationView_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
