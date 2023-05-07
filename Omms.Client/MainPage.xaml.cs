@@ -62,6 +62,9 @@ public sealed partial class MainPage : Page
             case "Settings":
                 contentFrame.Navigate(typeof(SettingsPage));
                 break;
+            case "Terminal":
+                contentFrame.Navigate(typeof(TerminalPage));
+                break;
             default:
                 break;
         }

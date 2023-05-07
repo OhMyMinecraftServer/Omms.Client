@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommunityToolkit.Labs.WinUI;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,18 +14,21 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
+namespace Omms.Client.Views;
 
-namespace Omms.Client.Views
+public sealed partial class SettingsPage : Page
 {
-    /// <summary>
-    /// 可用于自身或导航至 Frame 内部的空白页。
-    /// </summary>
-    public sealed partial class SettingsPage : Page
+    public SettingsPage()
     {
-        public SettingsPage()
-        {
-            this.InitializeComponent();
-        }
+        this.InitializeComponent();
+    }
+
+    private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        var comboBox = sender as ComboBox;
+        var target = (string)comboBox.SelectedValue;
+
+        foreach (var item in PreferenceExpander.Items.Cast<SettingsCard>())
+            item.Visibility = target.Equals(item.Tag) ? Visibility.Visible : Visibility.Collapsed;
     }
 }

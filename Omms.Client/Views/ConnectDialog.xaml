@@ -5,12 +5,26 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:Omms.Client.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     Title="Connect To Server"
     DefaultButton="Primary"
+    Loaded="ContentDialog_Loaded"
     PrimaryButtonText="Connect"
     SecondaryButtonText="Cancel"
     Style="{ThemeResource DefaultContentDialogStyle}"
     mc:Ignorable="d">
 
-    <Grid />
+    <Grid>
+        <StackPanel Spacing="15">
+            <TextBox BorderBrush="{ThemeResource ButtonBorderBrush}" PlaceholderText="Server IpAddress" />
+            <PasswordBox BorderBrush="{ThemeResource ButtonBorderBrush}" PlaceholderText="Connection Code" />
+            <TextBlock Text="You have not saved the server connection configuration, connect to add it once" TextWrapping="WrapWholeWords" />
+        </StackPanel>
+
+        <muxc:TeachingTip
+            x:Name="TeachingTip"
+            Title="These content will be stored in the settings so that the next connection is connected"
+            IsLightDismissEnabled="False"
+            IsOpen="False" />
+    </Grid>
 </ContentDialog>

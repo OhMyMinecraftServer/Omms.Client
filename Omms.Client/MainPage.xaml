@@ -43,12 +43,18 @@
                         <FontIcon Glyph="&#xe756;" />
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
-                <muxc:NavigationViewItem Content="Arrangement" Tag="Arrangement">
+                <muxc:NavigationViewItem
+                    Content="Arrangement"
+                    IsEnabled="False"
+                    Tag="Arrangement">
                     <muxc:NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xf0e3;" />
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
-                <muxc:NavigationViewItem Content="Manage" Tag="Manage">
+                <muxc:NavigationViewItem
+                    Content="Manage"
+                    IsEnabled="False"
+                    Tag="Manage">
                     <muxc:NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xe912;" />
                     </muxc:NavigationViewItem.Icon>

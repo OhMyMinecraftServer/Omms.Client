@@ -22,11 +22,8 @@ public sealed partial class ConnectDialog : ContentDialog
         this.InitializeComponent();
     }
 
-    private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+    private void ContentDialog_Loaded(object sender, RoutedEventArgs e)
     {
-    }
-
-    private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
-    {
+        TeachingTip.IsOpen = true;
     }
 }

@@ -6,6 +6,7 @@
     xmlns:labs="using:CommunityToolkit.Labs.WinUI"
     xmlns:local="using:Omms.Client.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     Background="Transparent"
     mc:Ignorable="d">
 
@@ -42,72 +43,114 @@
                     Margin="1,28,0,4"
                     Style="{StaticResource BodyStrongTextBlockStyle}"
                     Text="Preference" />
-                <labs:SettingsExpander Description="Application background settings." Header="Background">
+                <labs:SettingsExpander
+                    x:Name="PreferenceExpander"
+                    Description="Application background settings."
+                    Header="Background">
                     <labs:SettingsExpander.HeaderIcon>
                         <FontIcon Glyph="&#xE91B;" />
                     </labs:SettingsExpander.HeaderIcon>
-                    <ComboBox SelectedIndex="0">
-                        <ComboBoxItem>Mica</ComboBoxItem>
-                        <ComboBoxItem>Acrylic</ComboBoxItem>
-                        <ComboBoxItem>Solid</ComboBoxItem>
-                        <ComboBoxItem>Image</ComboBoxItem>
+                    <ComboBox SelectedIndex="0" SelectionChanged="ComboBox_SelectionChanged">
+                        <x:String>Mica</x:String>
+                        <x:String>Acrylic</x:String>
+                        <x:String>Solid</x:String>
+                        <x:String>Image</x:String>
                     </ComboBox>
 
                     <labs:SettingsExpander.Items>
-                        <labs:SettingsCard Header="A basic SettingsCard within an SettingsExpander">
-                            <Button Content="Button" />
+                        <labs:SettingsCard Header="TintLuminosityOpacity" Tag="Acrylic">
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <muxc:NumberBox
+                                    Maximum="1"
+                                    Minimum="0"
+                                    SmallChange="0.1"
+                                    SpinButtonPlacementMode="Inline" />
+                            </StackPanel>
                         </labs:SettingsCard>
-                        <labs:SettingsCard
-                            Description="SettingsCard within an Expander can be made clickable too!"
-                            Header="This item can be clicked"
-                            IsClickEnabled="True" />
-
-                        <labs:SettingsCard ContentAlignment="Left">
-                            <CheckBox Content="Here the ContentAlignment is set to Left. This is great for e.g. CheckBoxes or RadioButtons." />
+                        <labs:SettingsCard Header="TintOpacity" Tag="Acrylic">
+                            <muxc:NumberBox
+                                Maximum="1"
+                                Minimum="0"
+                                SmallChange="0.1"
+                                SpinButtonPlacementMode="Inline" />
                         </labs:SettingsCard>
-
+                        <labs:SettingsCard ContentAlignment="Left" Tag="Acrylic">
+                            <CheckBox Content="Use the default style resource (SystemControlAcrylicWindowBrush)" />
+                        </labs:SettingsCard>
                         <labs:SettingsCard
                             HorizontalContentAlignment="Left"
-                            ContentAlignment="Vertical"
-                            Description="You can also align your content vertically. Make sure to set the HorizontalAlignment to Left when you do!"
-                            Header="Vertically aligned">
-                            <GridView SelectedIndex="1">
-                                <GridViewItem>
-                                    <Border
-                                        Width="64"
-                                        Height="64"
-                                        Background="#0078D4"
-                                        CornerRadius="4" />
-                                </GridViewItem>
-                                <GridViewItem>
-                                    <Border
-                                        Width="64"
-                                        Height="64"
-                                        Background="#005EB7"
-                                        CornerRadius="4" />
-                                </GridViewItem>
-                                <GridViewItem>
-                                    <Border
-                                        Width="64"
-                                        Height="64"
-                                        Background="#003D92"
-                                        CornerRadius="4" />
-                                </GridViewItem>
-                                <GridViewItem>
-                                    <Border
-                                        Width="64"
-                                        Height="64"
-                                        Background="#001968"
-                                        CornerRadius="4" />
-                                </GridViewItem>
-                            </GridView>
+                            Header="Application background color"
+                            Tag="Solid">
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <GridView Margin="0,0,0,-15" SelectedIndex="1">
+                                    <GridViewItem>
+                                        <Border
+                                            Width="64"
+                                            Height="48"
+                                            Background="{ThemeResource SystemAccentColor}"
+                                            CornerRadius="4"
+                                            ToolTipService.ToolTip="SystemAccentColor" />
+                                    </GridViewItem>
+                                    <GridViewItem>
+                                        <Border
+                                            Width="64"
+                                            Height="48"
+                                            Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+                                            CornerRadius="4"
+                                            ToolTipService.ToolTip="ApplicationPageBackgroundThemeBrush" />
+                                    </GridViewItem>
+                                    <GridViewItem>
+                                        <Border
+                                            Width="64"
+                                            Height="48"
+                                            Background="#003D92"
+                                            CornerRadius="4"
+                                            ToolTipService.ToolTip="Customize" />
+                                    </GridViewItem>
+                                </GridView>
+                                <Button Content="Color Selector" Style="{ThemeResource AccentButtonStyle}">
+                                    <Button.Flyout>
+                                        <Flyout Placement="Full">
+                                            <Flyout.FlyoutPresenterStyle>
+                                                <Style BasedOn="{StaticResource DefaultFlyoutPresenterStyle}" TargetType="FlyoutPresenter">
+                                                    <Setter Property="MaxHeight" Value="Infinity" />
+                                                    <Setter Property="MaxWidth" Value="Infinity" />
+                                                </Style>
+                                            </Flyout.FlyoutPresenterStyle>
+                                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                <muxc:ColorPicker x:Name="myColorPicker" Orientation="Horizontal" />
+                                                <StackPanel
+                                                    x:Name="ColorPickerStackPanel"
+                                                    Margin="0,-20,0,0"
+                                                    HorizontalAlignment="Right"
+                                                    Orientation="Horizontal"
+                                                    Spacing="10">
+                                                    <Button Content="Confirm" Style="{ThemeResource AccentButtonStyle}" />
+                                                    <Button Content="Cancel" />
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </Flyout>
+                                    </Button.Flyout>
+                                </Button>
+                            </StackPanel>
                         </labs:SettingsCard>
-                        <labs:SettingsCard Description="You can override the Left indention of a SettingsCard by overriding the SettingsCardLeftIndention" Header="Customization">
-                            <labs:SettingsCard.Resources>
-                                <x:Double x:Key="SettingsCardLeftIndention">40</x:Double>
-                            </labs:SettingsCard.Resources>
-                        </labs:SettingsCard>
+                        <labs:SettingsCard Header="No additional options" Tag="Mica" />
                     </labs:SettingsExpander.Items>
+                </labs:SettingsExpander>
+                <labs:SettingsCard Header="Display Theme">
+                    <labs:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xe706;" />
+                    </labs:SettingsCard.HeaderIcon>
+                    <ComboBox SelectedIndex="0">
+                        <x:String>Light</x:String>
+                        <x:String>Dark</x:String>
+                        <x:String>System</x:String>
+                    </ComboBox>
+                </labs:SettingsCard>
+                <labs:SettingsExpander Header="Color Theme">
+                    <labs:SettingsExpander.HeaderIcon>
+                        <FontIcon Glyph="&#xe790;" />
+                    </labs:SettingsExpander.HeaderIcon>
                 </labs:SettingsExpander>
 
                 <TextBlock
@@ -138,5 +181,28 @@
 
             </StackPanel>
         </ScrollViewer>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="WindowState">
+                <VisualState x:Name="WideState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="650" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="myColorPicker.Orientation" Value="Horizontal" />
+                        <Setter Target="ColorPickerStackPanel.Margin" Value="0,-20,0,0" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="myColorPicker.Orientation" Value="Vertical" />
+                        <Setter Target="ColorPickerStackPanel.Margin" Value="0" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
     </Grid>
 </Page>
