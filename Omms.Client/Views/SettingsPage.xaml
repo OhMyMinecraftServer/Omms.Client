@@ -6,8 +6,6 @@
     xmlns:labs="using:CommunityToolkit.Labs.WinUI"
     xmlns:local="using:Omms.Client.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
-    Background="Transparent"
     mc:Ignorable="d">
 
     <Grid>
@@ -60,7 +58,7 @@
                     <labs:SettingsExpander.Items>
                         <labs:SettingsCard Header="TintLuminosityOpacity" Tag="Acrylic">
                             <StackPanel Orientation="Horizontal" Spacing="10">
-                                <muxc:NumberBox
+                                <NumberBox
                                     Maximum="1"
                                     Minimum="0"
                                     SmallChange="0.1"
@@ -68,7 +66,7 @@
                             </StackPanel>
                         </labs:SettingsCard>
                         <labs:SettingsCard Header="TintOpacity" Tag="Acrylic">
-                            <muxc:NumberBox
+                            <NumberBox
                                 Maximum="1"
                                 Minimum="0"
                                 SmallChange="0.1"
@@ -118,7 +116,7 @@
                                                 </Style>
                                             </Flyout.FlyoutPresenterStyle>
                                             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                <muxc:ColorPicker x:Name="myColorPicker" Orientation="Horizontal" />
+                                                <ColorPicker x:Name="myColorPicker" Orientation="Horizontal" />
                                                 <StackPanel
                                                     x:Name="ColorPickerStackPanel"
                                                     Margin="0,-20,0,0"

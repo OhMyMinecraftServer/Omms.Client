@@ -6,7 +6,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:Omms.Client.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     Background="Transparent"
     Loaded="Page_Loaded"
     mc:Ignorable="d">
@@ -57,17 +56,17 @@
                     BorderThickness="1"
                     PlaceholderText="Input command to send">
                     <AutoSuggestBox.QueryIcon>
-                        <muxc:AnimatedIcon Width="16" Height="16">
-                            <muxc:AnimatedIcon.Source>
+                        <AnimatedIcon Width="16" Height="16">
+                            <AnimatedIcon.Source>
                                 <animatedvisuals:AnimatedBackVisualSource />
-                            </muxc:AnimatedIcon.Source>
-                            <muxc:AnimatedIcon.FallbackIconSource>
-                                <muxc:SymbolIconSource Symbol="Back" />
-                            </muxc:AnimatedIcon.FallbackIconSource>
-                            <muxc:AnimatedIcon.RenderTransform>
+                            </AnimatedIcon.Source>
+                            <AnimatedIcon.FallbackIconSource>
+                                <SymbolIconSource Symbol="Back" />
+                            </AnimatedIcon.FallbackIconSource>
+                            <AnimatedIcon.RenderTransform>
                                 <ScaleTransform ScaleX="-1" />
-                            </muxc:AnimatedIcon.RenderTransform>
-                        </muxc:AnimatedIcon>
+                            </AnimatedIcon.RenderTransform>
+                        </AnimatedIcon>
                     </AutoSuggestBox.QueryIcon>
                 </AutoSuggestBox>
                 <CommandBar

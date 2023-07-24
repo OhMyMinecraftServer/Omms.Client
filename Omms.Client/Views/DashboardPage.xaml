@@ -6,7 +6,6 @@
     xmlns:labs="using:CommunityToolkit.Labs.WinUI"
     xmlns:local="using:Omms.Client.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     Background="Transparent"
     SizeChanged="Page_SizeChanged"
     mc:Ignorable="d">
@@ -64,7 +63,7 @@
                                     </Grid.ColumnDefinitions>
                                     <StackPanel Orientation="Horizontal">
                                         <Grid HorizontalAlignment="Center">
-                                            <muxc:ProgressRing
+                                            <ProgressRing
                                                 Width="48"
                                                 Height="48"
                                                 Background="{ThemeResource ProgressBarBackground}"
@@ -96,7 +95,7 @@
                                         HorizontalAlignment="Left"
                                         Orientation="Horizontal">
                                         <Grid HorizontalAlignment="Center">
-                                            <muxc:ProgressRing
+                                            <ProgressRing
                                                 Width="48"
                                                 Height="48"
                                                 Background="{ThemeResource ProgressBarBackground}"

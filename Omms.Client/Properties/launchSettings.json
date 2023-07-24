@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Omms.Client (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Omms.Client (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

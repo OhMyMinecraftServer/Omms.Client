@@ -5,7 +5,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:Omms.Client.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     Title="Connect To Server"
     DefaultButton="Primary"
     Loaded="ContentDialog_Loaded"
@@ -21,7 +20,7 @@
             <TextBlock Text="You have not saved the server connection configuration, connect to add it once" TextWrapping="WrapWholeWords" />
         </StackPanel>
 
-        <muxc:TeachingTip
+        <TeachingTip
             x:Name="TeachingTip"
             Title="These content will be stored in the settings so that the next connection is connected"
             IsLightDismissEnabled="False"
